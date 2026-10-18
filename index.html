@@ -220,9 +220,29 @@ html[data-lang="ja"] body{line-break:strict;overflow-wrap:anywhere}
 #sres .sn{font-size:13px;color:var(--ink2);display:block;margin-top:2px}
 #sres mark{background:var(--amber-soft);color:inherit;border-radius:3px;padding:0 1px}
 .sempty{padding:20px 12px;color:var(--ink3);font-size:14px}
-</style>
+/* ---------- mobile polish (<=1000px only; desktop unchanged) ---------- */
+.side-close{display:none}
+.sshade{display:none}
+@media(max-width:1000px){
+ .side-close{display:block;width:100%;margin:0 0 12px;padding:10px 12px;border:1px solid var(--line2);background:var(--paper);color:var(--ink2);border-radius:8px;font:600 14px var(--sans);cursor:pointer}
+ .sshade{display:block;position:fixed;inset:0;z-index:19;background:rgba(18,22,28,.4)}
+ .sshade[hidden]{display:none}
+ .topbar{flex-wrap:wrap;gap:8px 10px;margin-bottom:10px}
+ .topbar>span{display:none}
+ .topbar .lang{margin:0}
+ .tb-right{width:100%;display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+ .tb-right>*{justify-content:center;text-align:center;white-space:nowrap;font-size:12.5px;padding:8px 4px;width:100%;min-width:0}
+ .tb-right .smap-btn svg{display:none}
+ .topic{overflow-wrap:anywhere}
+ .topic table,.chapter table{display:block;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+ .tbl{max-width:100%}
+ .topic pre,.topic code{white-space:pre-wrap;word-break:break-word}
+ .topic img,.chapter img{max-width:100%;height:auto}
+}
 <div class="shell">
+<div class="sshade" id="sshade" hidden></div>
 <aside id="side" aria-label="手冊目錄">
+ <button type="button" class="side-close" id="sclose">✕ 收合目錄 ／ 目次を閉じる</button>
  <div class="lang" role="group" aria-label="言語 / 語言"><button type="button" data-setlang="zh" aria-pressed="true">中文</button><button type="button" data-setlang="ja" aria-pressed="false">日本語</button></div>
  <div class="brand">GBP Field Manual</div>
  <h1 data-l="zh">Google 商家檔案操作手冊</h1>
@@ -8507,6 +8527,12 @@ $$('[data-setlang]').forEach(function(b){b.addEventListener('click',function(){i
 /* mobile menu */
 var side=$('#side');$('#menu').addEventListener('click',function(){var o=side.classList.toggle('open');this.setAttribute('aria-expanded',o)});
 side.addEventListener('click',function(e){if(e.target.closest('a')&&matchMedia("(max-width:1000px)").matches)side.classList.remove('open')});
+/* mobile sidebar: 收合按鈕、遮罩、連結點擊 */
+function closeSide(){side.classList.remove('open');$('#menu').setAttribute('aria-expanded','false');$('#sshade').hidden=true;}
+$('#menu').addEventListener('click',function(){$('#sshade').hidden=!side.classList.contains('open');});
+$('#sclose').addEventListener('click',closeSide);
+$('#sshade').addEventListener('click',closeSide);
+side.addEventListener('click',function(e){if(e.target.closest('a')&&matchMedia('(max-width:1000px)').matches)closeSide();});
 /* scrollspy */
 if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&e.target.dataset.l===lang){var d=$('nav details[data-ch="'+e.target.id+'"]');if(d&&!isFiltering()){$$('nav details',d.parentNode).forEach(function(x){if(x!==d)x.open=false});d.open=true}}})},{rootMargin:'-10% 0px -80% 0px'});allChapters.forEach(function(c){io.observe(c)})}
 /* checklist（兩種語言共用同一組 data-k，進度會同步） */
