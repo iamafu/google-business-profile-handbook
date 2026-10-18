@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>內容修訂 ・ コンテンツ改訂</title>
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet,noimageindex,noai,noimageai">
+<meta name="googlebot" content="noindex,nofollow,noarchive,nosnippet,noai">
+<meta name="bingbot" content="noindex,nofollow,noarchive,nosnippet,noai">
+<meta name="GPTBot" content="noindex,nofollow,noarchive,nosnippet,noai">
+<meta name="ChatGPT-User" content="noindex,nofollow,noarchive,nosnippet,noai">
+<meta name="OAI-SearchBot" content="noindex,nofollow,noarchive,nosnippet,noai">
+<meta name="ClaudeBot" content="noindex,nofollow,noarchive,nosnippet,noai">
+<meta name="Claude-Web" content="noindex,nofollow,noarchive,nosnippet,noai">
+<meta name="anthropic-ai" content="noindex,nofollow,noarchive,nosnippet,noai">
+<meta name="Google-Extended" content="noindex,nofollow,noarchive,nosnippet,noai">
+<meta name="Applebot-Extended" content="noindex,nofollow,noarchive,nosnippet,noai">
+<meta name="CCBot" content="noindex,nofollow,noarchive,nosnippet,noai">
+<meta name="PerplexityBot" content="noindex,nofollow,noarchive,nosnippet,noai">
+<meta name="Bytespider" content="noindex,nofollow,noarchive,nosnippet,noai">
+<meta name="Amazonbot" content="noindex,nofollow,noarchive,nosnippet,noai">
+<meta name="Meta-ExternalAgent" content="noindex,nofollow,noarchive,nosnippet,noai">
+<meta name="FacebookBot" content="noindex,nofollow,noarchive,nosnippet,noai">
+<meta name="cohere-ai" content="noindex,nofollow,noarchive,nosnippet,noai">
+<meta name="Diffbot" content="noindex,nofollow,noarchive,nosnippet,noai">
+<meta name="ImagesiftBot" content="noindex,nofollow,noarchive,nosnippet,noai">
+<meta name="Omgilibot" content="noindex,nofollow,noarchive,nosnippet,noai">
+<meta name="YouBot" content="noindex,nofollow,noarchive,nosnippet,noai">
+<meta name="Timpibot" content="noindex,nofollow,noarchive,nosnippet,noai">
+</head>
+<body>
+<style>
+:root{--bg:#F6F5F1;--panel:#FFFFFF;--ink:#1B2129;--ink2:#46505C;--ink3:#76808B;--line:rgba(27,33,41,.14);--blue:#2457C5;--blue-ink:#1A429C;--blue-soft:rgba(36,87,197,.09);--shadow:0 1px 2px rgba(27,33,41,.05),0 10px 26px -16px rgba(27,33,41,.22)}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 "Segoe UI","PingFang TC","Microsoft JhengHei","Hiragino Sans","Yu Gothic UI","Noto Sans TC","Noto Sans JP",system-ui,sans-serif}
+html[data-lang="zh"] [data-sl="ja"],html[data-lang="ja"] [data-sl="zh"]{display:none}
+html[data-lang="zh"] .lang-block[data-lang="ja"],html[data-lang="ja"] .lang-block[data-lang="zh"]{display:none}
+.wrap{max-width:980px;margin:0 auto;padding:0 18px}
+.top{background:var(--panel);border-bottom:1px solid var(--line);padding:14px 0 10px;position:sticky;top:0;z-index:5}
+.top .row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.top h1{font-size:22px;margin:0;display:flex;align-items:center;gap:10px}
+.top h1 svg{width:26px;height:26px;stroke:var(--blue);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.back{color:var(--blue-ink);text-decoration:none;font-size:14px}
+.langsw{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.langsw button{font:13px system-ui,sans-serif;padding:6px 12px;border:0;background:transparent;color:var(--ink2);cursor:pointer}
+.langsw button+button{border-left:1px solid var(--line)}
+.langsw button[aria-pressed="true"]{background:var(--blue);color:#fff}
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin:18px 0 8px}
+.tile{display:flex;flex-direction:column;align-items:flex-start;gap:4px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 12px 10px;text-decoration:none;color:var(--ink);box-shadow:var(--shadow);transition:transform .15s,border-color .15s}
+.tile:hover{transform:translateY(-2px);border-color:var(--blue)}
+:root[data-theme="dark"]{--bg:#12161C;--panel:#1A2028;--ink:#E8E6E1;--ink2:#B3BAC3;--ink3:#8691A0;--line:rgba(232,230,225,.14);--blue:#8DAEFF;--blue-ink:#B6CBFF;--blue-soft:rgba(141,174,255,.12)}
+:root[data-theme="light"]{--bg:#F6F5F1;--panel:#FFFFFF;--ink:#1B2129;--ink2:#46505C;--ink3:#76808B;--line:rgba(27,33,41,.14);--blue:#2457C5;--blue-ink:#1A429C;--blue-soft:rgba(36,87,197,.09)}
+.th{font:13px system-ui,sans-serif;padding:6px 12px;border:1px solid var(--line);background:var(--panel);color:var(--ink2);border-radius:8px;cursor:pointer}
+.th:hover{border-color:var(--blue)}
+.tile svg{width:26px;height:26px;stroke:var(--blue);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;background:var(--blue-soft);border-radius:8px;padding:5px;box-sizing:content-box}
+.tile .tn{font-weight:600;font-size:14.5px;line-height:1.35}
+.tile small{color:var(--ink3);font-size:12px}
+.tools{display:flex;gap:8px;margin:6px 0 4px}
+.tools button{font:13px system-ui,sans-serif;padding:5px 12px;border:1px solid var(--line);background:var(--panel);color:var(--ink2);border-radius:7px;cursor:pointer}
+.grp{margin:26px 0 8px;scroll-margin-top:120px}
+.grp h2{font-size:18px;display:flex;align-items:center;gap:10px;margin:0 0 8px;padding-bottom:6px;border-bottom:2px solid var(--ink)}
+.grp h2 svg{width:22px;height:22px;stroke:var(--blue);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+details.sm-ch{background:var(--panel);border:1px solid var(--line);border-radius:10px;margin:6px 0;box-shadow:var(--shadow)}
+details.sm-ch>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;padding:10px 14px}
+details.sm-ch>summary::-webkit-details-marker{display:none}
+details.sm-ch>summary::before{content:"▸";color:var(--ink3);transition:transform .15s}
+details.sm-ch[open]>summary::before{transform:rotate(90deg)}
+.num{font:600 12px ui-monospace,Consolas,monospace;color:var(--blue-ink);min-width:2.2em}
+.ttl{flex:1;font-weight:600;font-size:15px}
+.cnt{font-size:12px;color:var(--ink3);background:var(--blue-soft);border-radius:999px;padding:1px 9px}
+details.sm-ch ul{margin:0;padding:4px 14px 12px 42px;list-style:none}
+details.sm-ch li{margin:5px 0;font-size:14.5px}
+details.sm-ch a{color:var(--ink);text-decoration:none;border-bottom:1px dotted var(--ink3)}
+details.sm-ch a:hover{color:var(--blue-ink);border-bottom-color:var(--blue)}
+.foot{margin:40px 0 30px;color:var(--ink3);font-size:13px}
+.pages-links{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 0}
+.pages-links a{display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border:1px solid var(--line);border-radius:10px;background:var(--panel);color:var(--ink);text-decoration:none;font-weight:600;box-shadow:var(--shadow)}
+.pages-links a:hover{border-color:var(--blue);color:var(--blue-ink)}
+.mon{margin:18px 0 6px}
+.mon>summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:10px;font-weight:700;font-size:16px;padding:8px 2px;border-bottom:2px solid var(--ink)}
+.mon>summary::-webkit-details-marker{display:none}
+.mon>summary::before{content:"▸";color:var(--ink3);transition:transform .15s}
+.mon[open]>summary::before{transform:rotate(90deg)}
+.mon .mcnt{font-size:12px;color:var(--ink3);font-weight:500;background:var(--blue-soft);border-radius:999px;padding:1px 9px}
+.ent{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:10px 0;box-shadow:var(--shadow)}
+.ent .eh{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.ent .dt{font:600 12.5px ui-monospace,Consolas,monospace;color:var(--blue-ink);background:var(--blue-soft);border-radius:6px;padding:2px 8px}
+.ent h3{font-size:16px;margin:0;flex:1 1 auto}
+.ent h3 a{color:var(--ink);text-decoration:none;border-bottom:1px dotted var(--ink3)}
+.ent h3 a:hover{color:var(--blue-ink);border-bottom-color:var(--blue)}
+.act{font-size:12px;font-weight:700;border-radius:6px;padding:2px 8px;border:1px solid}
+.act.add{color:#1E7A4C;border-color:#1E7A4C;background:rgba(30,122,76,.1)}
+.act.del{color:#C23B27;border-color:#C23B27;background:rgba(194,59,39,.1)}
+.act.fix{color:#9A6A00;border-color:#9A6A00;background:rgba(217,154,0,.12)}
+.ent dl{display:grid;grid-template-columns:max-content 1fr;gap:6px 14px;margin:10px 0 0;font-size:14.5px}
+.ent dt{color:var(--ink3);font-weight:600}
+.ent dd{margin:0}
+.intro{color:var(--ink2);font-size:14.5px;margin:6px 0 10px}
+</style><header class="top"><div class="wrap"><div class="row">
+<h1><span data-sl="zh">內容修訂</span><span data-sl="ja">コンテンツ改訂</span></h1>
+<div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><a class="back" href="index.html"><span data-sl="zh">← 回到手冊</span><span data-sl="ja">← マニュアルに戻る</span></a><a class="back" href="sitemap.html"><span data-sl="zh">網頁地圖</span><span data-sl="ja">サイトマップ</span></a>
+<button type="button" class="th" id="sm-theme" aria-label="切換深淺色 / 明暗切替"><span data-sl="zh">◐ 深淺色</span><span data-sl="ja">◐ 明暗切替</span></button>
+<div class="langsw"><button type="button" data-lang="zh" aria-pressed="true">中文</button><button type="button" data-lang="ja" aria-pressed="false">日本語</button></div></div>
+</div><p class="intro"><span data-sl="zh">記錄章節與主題的新增、移除與修正。錯字與標點等小修正不列入。最新的在最上方，較舊的月份預設收合。</span><span data-sl="ja">章とトピックの追加・削除・訂正を記録します。誤字・脱字などの小さな修正は含みません。新しいものが上、古い月は初期状態で閉じています。</span></p></div></header><div class="lang-block" data-lang="zh"><main class="wrap"><details class="mon" open><summary>2026 年 10 月<span class="mcnt">9</span></summary><article class="ent"><div class="eh"><span class="dt">2026-10-18</span><span class="act add">新增</span><h3><a href="index.html#t-clarify-2026-10-18-sab-term">現有資訊釐清更新區（首筆：日文 SAB 用語更正）</a></h3></div><dl><dt>原因</dt><dd>日文版原用語不是 Google 日本的正式用語，改為「非店舗型ビジネス」</dd><dt>出處</dt><dd>Google 日文說明頁 9157481</dd></dl></article><article class="ent"><div class="eh"><span class="dt">2026-10-18</span><span class="act fix">修正</span><h3><a href="index.html#jp23">第 23–28 章中文版純中文化</a></h3></div><dl><dt>原因</dt><dd>中文版混有日文假名與日文介面名稱，切換語言時會中日混雜</dd><dt>出處</dt><dd>內容修正（無新增事實）</dd></dl></article><article class="ent"><div class="eh"><span class="dt">2026-10-18</span><span class="act add">新增</span><h3><a href="index.html#jp23">第 23–28 章：日本語圈的最新情報（X 帳號近一年貼文）</a></h3></div><dl><dt>原因</dt><dd>依性質分為停止・申請、評論、資訊與貼文、地址與分類、AI 與地圖、專家獨特見解</dd><dt>出處</dt><dd>@moto_local、@haseshout、@ichironagatomo 的 X 貼文</dd></dl></article><article class="ent"><div class="eh"><span class="dt">2026-10-18</span><span class="act add">新增</span><h3><a href="index.html#upd">第 22 章新增 2026-10-18 紀錄</a></h3></div><dl><dt>原因</dt><dd>記錄本次新增的日本來源</dd><dt>出處</dt><dd>維護紀錄</dd></dl></article><article class="ent"><div class="eh"><span class="dt">2026-10-17</span><span class="act add">新增</span><h3><a href="index.html#t-jp-appeal-2026">第 02 章新增日本版社群指南：停止後的再審查流程</a></h3></div><dl><dt>原因</dt><dd>日本社群指南（2026-08-01 完全版）整理了停止後的完整流程與證明文件</dd><dt>出處</dt><dd>社群指南 266118424</dd></dl></article><article class="ent"><div class="eh"><span class="dt">2026-10-17</span><span class="act add">新增</span><h3><a href="index.html#jp23">新增第 23 章「日本語圈的最新情報」</a></h3></div><dl><dt>原因</dt><dd>收錄 moto_local、ichironagatomo、go-local.jp 的近期內容</dd><dt>出處</dt><dd>各來源原文，見各主題出處</dd></dl></article><article class="ent"><div class="eh"><span class="dt">2026-10-17</span><span class="act fix">修正</span><h3><a href="index.html#suspend">日文版統一用語：「非店舗型ビジネス」、「ハイブリッド型ビジネス」</a></h3></div><dl><dt>原因</dt><dd>日本語版用語與 Google 日本語版說明一致</dd><dt>出處</dt><dd>Google 日文說明頁 9157481</dd></dl></article><article class="ent"><div class="eh"><span class="dt">2026-10-09</span><span class="act add">新增</span><h3><a href="index.html#res">新增第 21 章「延伸資源」</a></h3></div><dl><dt>原因</dt><dd>整理 BrightLocal、Search Engine Land、StudioHawk、Experience.com 的內容</dd><dt>出處</dt><dd>各來源原文，見各主題出處</dd></dl></article><article class="ent"><div class="eh"><span class="dt">2026-10-09</span><span class="act add">新增</span><h3><a href="index.html#upd">新增第 22 章「資訊更新紀錄」</a></h3></div><dl><dt>原因</dt><dd>記錄每次更新的日期、來源與變動</dd><dt>出處</dt><dd>維護紀錄</dd></dl></article></details></main></div><div class="lang-block" data-lang="ja"><main class="wrap"><details class="mon" open><summary>2026 年 10 月<span class="mcnt">9</span></summary><article class="ent"><div class="eh"><span class="dt">2026-10-18</span><span class="act add">追加</span><h3><a href="index.html#ja-t-clarify-2026-10-18-sab-term">既存情報の訂正エリア（最初の項目：SAB 用語の訂正）</a></h3></div><dl><dt>理由</dt><dd>日本語版の用語が Google 日本の正式な用語ではなかったため、「非店舗型ビジネス」に変更</dd><dt>出典</dt><dd>Google 日本語ヘルプ 9157481</dd></dl></article><article class="ent"><div class="eh"><span class="dt">2026-10-18</span><span class="act fix">訂正</span><h3><a href="index.html#ja-jp23">第 23〜28 章 中国語版の純中国語化</a></h3></div><dl><dt>理由</dt><dd>中国語版に日本語の仮名や UI 名が混ざっていたため</dd><dt>出典</dt><dd>内容の修正（新しい事実の追加なし）</dd></dl></article><article class="ent"><div class="eh"><span class="dt">2026-10-18</span><span class="act add">追加</span><h3><a href="index.html#ja-jp23">第 23〜28 章：日本語圏の最新情報（X アカウントの直近 1 年の投稿）</a></h3></div><dl><dt>理由</dt><dd>停止・申請、クチコミ、情報と投稿、住所とカテゴリ、AI と地図、専門家の独自の見解に分類</dd><dt>出典</dt><dd>@moto_local、@haseshout、@ichironagatomo の X 投稿</dd></dl></article><article class="ent"><div class="eh"><span class="dt">2026-10-18</span><span class="act add">追加</span><h3><a href="index.html#ja-upd">第 22 章に 2026-10-18 の記録を追加</a></h3></div><dl><dt>理由</dt><dd>今回追加した日本の情報源を記録</dd><dt>出典</dt><dd>保守の記録</dd></dl></article><article class="ent"><div class="eh"><span class="dt">2026-10-17</span><span class="act add">追加</span><h3><a href="index.html#ja-t-jp-appeal-2026">第 02 章に日本のコミュニティ・ガイドを追加：停止後の再審査の流れ</a></h3></div><dl><dt>理由</dt><dd>コミュニティ・ガイド（2026 年 8 月 1 日の完全版）で、停止後の全体の流れと証明書類を整理</dd><dt>出典</dt><dd>コミュニティ・ガイド 266118424</dd></dl></article><article class="ent"><div class="eh"><span class="dt">2026-10-17</span><span class="act add">追加</span><h3><a href="index.html#ja-jp23">第 23 章「日本語圏の最新情報」を新設</a></h3></div><dl><dt>理由</dt><dd>moto_local、ichironagatomo、go-local.jp の最近の内容をまとめた</dd><dt>出典</dt><dd>各情報源の原文（各項目の出典を参照）</dd></dl></article><article class="ent"><div class="eh"><span class="dt">2026-10-17</span><span class="act fix">訂正</span><h3><a href="index.html#ja-suspend">日本語版の用語を「非店舗型ビジネス」「ハイブリッド型ビジネス」に統一</a></h3></div><dl><dt>理由</dt><dd>Google 日本語ヘルプの用語に合わせるため</dd><dt>出典</dt><dd>Google 日本語ヘルプ 9157481</dd></dl></article><article class="ent"><div class="eh"><span class="dt">2026-10-09</span><span class="act add">追加</span><h3><a href="index.html#ja-res">第 21 章「延伸リソース」を追加</a></h3></div><dl><dt>理由</dt><dd>BrightLocal、Search Engine Land、StudioHawk、Experience.com の内容を整理</dd><dt>出典</dt><dd>各情報源の原文（各項目の出典を参照）</dd></dl></article><article class="ent"><div class="eh"><span class="dt">2026-10-09</span><span class="act add">追加</span><h3><a href="index.html#ja-upd">第 22 章「情報更新の記録」を追加</a></h3></div><dl><dt>理由</dt><dd>更新のたびに日付・出典・変更内容を記録するため</dd><dt>出典</dt><dd>保守の記録</dd></dl></article></details></main></div>
+<script>
+(function(){
+ var root=document.documentElement;
+ function setLang(l){root.setAttribute('data-lang',l);root.lang=l==='ja'?'ja':'zh-Hant';document.querySelectorAll('.langsw button').forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-lang')===l)});}
+ function openIn(el,open){el.querySelectorAll('details').forEach(function(d){d.open=open});}
+ document.querySelectorAll('.langsw button').forEach(function(b){b.addEventListener('click',function(){setLang(b.getAttribute('data-lang'));});});
+ document.querySelectorAll('[data-act]').forEach(function(b){b.addEventListener('click',function(){var block=b.closest('.lang-block');openIn(block,b.getAttribute('data-act')==='open');});});
+ function fromHash(){var h=location.hash.slice(1);var m=h.match(/^(zh|ja)-gd+$/);if(m){setLang(m[1]);var sec=document.getElementById(h);if(sec){openIn(sec,true);sec.scrollIntoView({behavior:'smooth',block:'start'});}}}
+  function focusGroup(id){var sec=document.getElementById(id);if(!sec)return;setLang(id.slice(0,2));document.querySelectorAll('details').forEach(function(d){d.open=false});openIn(sec,true);sec.scrollIntoView({behavior:'smooth',block:'start'});}
+ document.querySelectorAll('.tile').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();var id=a.getAttribute('href').slice(1);focusGroup(id);history.replaceState(null,'','#'+id);});});
+ window.addEventListener('hashchange',fromHash);
+ var KEY='gbpManualTheme';
+ root.setAttribute('data-theme','light');
+ try{var saved=localStorage.getItem(KEY);if(saved==='dark'||saved==='light')root.setAttribute('data-theme',saved);}catch(e){}
+ var tb=document.getElementById('sm-theme');
+ function isDark(){var t=root.getAttribute('data-theme');return t==='dark'||(!t&&matchMedia('(prefers-color-scheme: dark)').matches);}
+ tb.addEventListener('click',function(){var n=isDark()?'light':'dark';root.setAttribute('data-theme',n);try{localStorage.setItem(KEY,n)}catch(e){}});
+ setLang((navigator.language||'').slice(0,2)==='ja'?'ja':'zh');
+ fromHash();
+})();
+</script>
+</body>
+</html>

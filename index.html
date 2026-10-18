@@ -194,6 +194,8 @@ html[data-lang="ja"] body{line-break:strict;overflow-wrap:anywhere}
 .smap-btn{display:inline-flex;align-items:center;gap:7px;font:13px var(--sans);padding:6px 12px;border:1px solid var(--blue);background:var(--blue);color:#fff;border-radius:6px;text-decoration:none;font-weight:600}
 .smap-btn svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
 .smap-btn:hover{filter:brightness(1.08)}
+.hist-btn{display:inline-flex;align-items:center;font:13px system-ui,sans-serif;font-weight:600;padding:6px 12px;border:1px solid var(--blue);background:var(--panel);color:var(--blue-ink);border-radius:6px;text-decoration:none}
+.hist-btn:hover{background:var(--blue-soft)}
 /* ---------- topbar grouping & entry spacing ---------- */
 .topbar>span{flex:1}
 .tb-right{display:flex;gap:8px;align-items:center}
@@ -325,7 +327,7 @@ html[data-lang="ja"] body{line-break:strict;overflow-wrap:anywhere}
  <div class="cmd-box"><div class="cmd-label">更新指令（新對話直接貼上）／ 更新コマンド（新しいチャットに貼り付け）</div><div class="cmd-row"><code class="cmd-text">依 UPDATE.md 更新 Google 商家檔案操作手冊</code><button type="button" class="cmd-copy" data-cmd="依 UPDATE.md 更新 Google 商家檔案操作手冊">複製指令 ／ コピー</button></div></div>
 <div class="upd-top" data-l="zh">最後更新：<b>2026-10-18</b> ・ 下次更新：<b>2026-11-01</b>（每月 1 日與 15 日）・ 統計快照：<b>2026-10-07</b></div>
 <div class="upd-top" data-l="ja">最終更新：<b>2026-10-18</b> ・ 次回更新：<b>2026-11-01</b>（毎月 1 日・15 日）・ 統計スナップショット：<b>2026-10-07</b></div>
-<div class="topbar"><button id="menu" aria-controls="side" aria-expanded="false" data-t="menu">☰ 目錄</button><span></span><div class="lang" role="group" aria-label="言語 / 語言"><button type="button" data-setlang="zh" aria-pressed="true">中文</button><button type="button" data-setlang="ja" aria-pressed="false">日本語</button></div><div class="tb-right"><a class="smap-btn" href="sitemap.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2zM9 4v14M15 6v14"/></svg><span data-t="smap">網頁地圖</span></a><button id="theme" aria-label="theme" data-t="theme">◐ 深淺色</button></div></div>
+<div class="topbar"><button id="menu" aria-controls="side" aria-expanded="false" data-t="menu">☰ 目錄</button><span></span><div class="lang" role="group" aria-label="言語 / 語言"><button type="button" data-setlang="zh" aria-pressed="true">中文</button><button type="button" data-setlang="ja" aria-pressed="false">日本語</button></div><div class="tb-right"><a class="smap-btn" href="sitemap.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2zM9 4v14M15 6v14"/></svg><span data-t="smap">網頁地圖</span></a><a class="hist-btn" href="versions.html" data-t="vers">版本更新</a><a class="hist-btn" href="changes.html" data-t="chg">內容修訂</a><button id="theme" aria-label="theme" data-t="theme">◐ 深淺色</button></div></div>
  <div class="hero" data-l="zh">
   <div class="kick">Google Business Profile ・ Community Field Manual</div>
   <h1>Google 商家檔案（GBP）操作手冊</h1>
@@ -8445,8 +8447,8 @@ var KEY='gbpManualRead',root=document.documentElement;
 function load(k,d){try{var v=JSON.parse(localStorage.getItem(k));return v===null||v===undefined?d:v}catch(e){return d}}
 function save(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
 var D={
- zh:{doc:'zh-Hant',smap:'網頁地圖',title:'Google 商家檔案（GBP）操作手冊','f-imp':'★ 重要 ≥4','f-conf':'★ 易錯 ≥4','f-official':'官方','f-expert':'專家經驗','f-unread':'只看未讀',clear:'清除篩選',menu:'☰ 目錄',theme:'◐ 深淺色',ph:'搜尋：停權、影片驗證、評論…',rd1:'✓ 已讀',rd0:'標記已讀',prog:function(n,m){return '已讀 '+n+' / '+m},cnt:function(v,n){return v+' / '+n+' 則'}},
- ja:{doc:'ja',smap:'サイトマップ',title:'Google ビジネス プロフィール（GBP）運用マニュアル','f-imp':'★ 重要度 ≥4','f-conf':'★ 間違えやすさ ≥4','f-official':'公式','f-expert':'専門家の経験','f-unread':'未読のみ',clear:'絞り込み解除',menu:'☰ 目次',theme:'◐ 明暗切替',ph:'検索：停止、動画確認、クチコミ…',rd1:'✓ 既読',rd0:'既読にする',prog:function(n,m){return '既読 '+n+' / '+m},cnt:function(v,n){return v+' / '+n+' 件'}}
+ zh:{doc:'zh-Hant',smap:'網頁地圖',vers:'版本更新',chg:'內容修訂',title:'Google 商家檔案（GBP）操作手冊','f-imp':'★ 重要 ≥4','f-conf':'★ 易錯 ≥4','f-official':'官方','f-expert':'專家經驗','f-unread':'只看未讀',clear:'清除篩選',menu:'☰ 目錄',theme:'◐ 深淺色',ph:'搜尋：停權、影片驗證、評論…',rd1:'✓ 已讀',rd0:'標記已讀',prog:function(n,m){return '已讀 '+n+' / '+m},cnt:function(v,n){return v+' / '+n+' 則'}},
+ ja:{doc:'ja',smap:'サイトマップ',vers:'バージョン更新',chg:'コンテンツ改訂',title:'Google ビジネス プロフィール（GBP）運用マニュアル','f-imp':'★ 重要度 ≥4','f-conf':'★ 間違えやすさ ≥4','f-official':'公式','f-expert':'専門家の経験','f-unread':'未読のみ',clear:'絞り込み解除',menu:'☰ 目次',theme:'◐ 明暗切替',ph:'検索：停止、動画確認、クチコミ…',rd1:'✓ 既読',rd0:'既読にする',prog:function(n,m){return '既読 '+n+' / '+m},cnt:function(v,n){return v+' / '+n+' 件'}}
 };
 var saved=load('gbpManualLang',null);
 var lang=(saved==='ja'||saved==='zh')?saved:((navigator.language||'').slice(0,2)==='ja'?'ja':'zh');
