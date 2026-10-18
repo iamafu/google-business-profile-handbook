@@ -94,6 +94,8 @@ details.sm-ch a:hover{color:var(--blue-ink);border-bottom-color:var(--blue)}
  document.querySelectorAll('.langsw button').forEach(function(b){b.addEventListener('click',function(){setLang(b.getAttribute('data-lang'));});});
  document.querySelectorAll('[data-act]').forEach(function(b){b.addEventListener('click',function(){var block=b.closest('.lang-block');openIn(block,b.getAttribute('data-act')==='open');});});
  function fromHash(){var h=location.hash.slice(1);var m=h.match(/^(zh|ja)-gd+$/);if(m){setLang(m[1]);var sec=document.getElementById(h);if(sec){openIn(sec,true);sec.scrollIntoView({behavior:'smooth',block:'start'});}}}
+  function focusGroup(id){var sec=document.getElementById(id);if(!sec)return;setLang(id.slice(0,2));document.querySelectorAll('details').forEach(function(d){d.open=false});openIn(sec,true);sec.scrollIntoView({behavior:'smooth',block:'start'});}
+ document.querySelectorAll('.tile').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();var id=a.getAttribute('href').slice(1);focusGroup(id);history.replaceState(null,'','#'+id);});});
  window.addEventListener('hashchange',fromHash);
  var KEY='gbpManualTheme';
  try{var saved=localStorage.getItem(KEY);if(saved==='dark'||saved==='light')root.setAttribute('data-theme',saved);}catch(e){}
