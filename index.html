@@ -190,6 +190,10 @@ html[data-lang="ja"] body{line-break:strict;overflow-wrap:anywhere}
 .entry-box ol{margin:0;padding-left:1.3em}
 .entry-box li{margin:.3em 0}
 .entry-box a{color:var(--blue-ink)}
+/* ---------- sitemap entry button ---------- */
+.smap-btn{display:inline-flex;align-items:center;gap:7px;font:13px var(--sans);padding:6px 12px;border:1px solid var(--blue);background:var(--blue);color:#fff;border-radius:6px;text-decoration:none;font-weight:600}
+.smap-btn svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.smap-btn:hover{filter:brightness(1.08)}
 </style>
 <div class="shell">
 <aside id="side" aria-label="手冊目錄">
@@ -317,7 +321,7 @@ html[data-lang="ja"] body{line-break:strict;overflow-wrap:anywhere}
  <div class="cmd-box"><div class="cmd-label">更新指令（新對話直接貼上）／ 更新コマンド（新しいチャットに貼り付け）</div><div class="cmd-row"><code class="cmd-text">依 UPDATE.md 更新 Google 商家檔案操作手冊</code><button type="button" class="cmd-copy" data-cmd="依 UPDATE.md 更新 Google 商家檔案操作手冊">複製指令 ／ コピー</button></div></div>
 <div class="upd-top" data-l="zh">最後更新：<b>2026-10-18</b> ・ 下次更新：<b>2026-11-01</b>（每月 1 日與 15 日）・ 統計快照：<b>2026-10-07</b></div>
 <div class="upd-top" data-l="ja">最終更新：<b>2026-10-18</b> ・ 次回更新：<b>2026-11-01</b>（毎月 1 日・15 日）・ 統計スナップショット：<b>2026-10-07</b></div>
-<div class="topbar"><button id="menu" aria-controls="side" aria-expanded="false" data-t="menu">☰ 目錄</button><span></span><div class="lang" role="group" aria-label="言語 / 語言"><button type="button" data-setlang="zh" aria-pressed="true">中文</button><button type="button" data-setlang="ja" aria-pressed="false">日本語</button></div><button id="theme" aria-label="theme" data-t="theme">◐ 深淺色</button></div>
+<div class="topbar"><button id="menu" aria-controls="side" aria-expanded="false" data-t="menu">☰ 目錄</button><span></span><div class="lang" role="group" aria-label="言語 / 語言"><button type="button" data-setlang="zh" aria-pressed="true">中文</button><button type="button" data-setlang="ja" aria-pressed="false">日本語</button></div><a class="smap-btn" href="sitemap.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2zM9 4v14M15 6v14"/></svg><span data-t="smap">網頁地圖</span></a><button id="theme" aria-label="theme" data-t="theme">◐ 深淺色</button></div>
  <div class="hero" data-l="zh">
   <div class="kick">Google Business Profile ・ Community Field Manual</div>
   <h1>Google 商家檔案（GBP）操作手冊</h1>
@@ -344,10 +348,42 @@ html[data-lang="ja"] body{line-break:strict;overflow-wrap:anywhere}
 <article class="topic" id="t-clarify-2026-10-18-sab-term" data-imp="4" data-conf="3" data-src="fix" data-added="2026-10-18">
 <h3>2026-10-18：日文版的「サービス提供地域型（SAB）」改為「非店舗型ビジネス」</h3>
 <div class="rate"><span><span class="lab">重要</span><span class="stars s-imp" role="img" aria-label="重要程度 4 顆星（滿分 5）">★★★★☆</span></span><span><span class="lab">易錯</span><span class="stars s-conf" role="img" aria-label="易搞混程度 3 顆星（滿分 5）">★★★☆☆</span></span><span class="tag t-fix">已更正</span><span class="tag t-new">新</span></div>
-<p><b>舊說法：</b>日文版曾使用「サービス提供地域型（SAB）」「サービスエリア型ビジネス」「SAB」來稱呼服務地區型的商家。</p>
-<p><b>現況：</b>Google 的日文說明中心使用「非店舗型ビジネス」與「ハイブリッド型ビジネス」。「サービス提供地域型」與「SAB」並不是日本的正式用語。</p>
-<p><b>處理方式：</b>日文版全部改用「非店舗型ビジネス」，術語表也已說明。中文版仍使用「SAB（服務區域商家）」，內容本身沒有變動。</p>
-<p class="src">依據：<a href="https://support.google.com/business/answer/9157481?hl=ja" target="_blank" rel="noopener">Google ビジネス プロフィール ヘルプ：非店舗型ビジネスとハイブリッド型ビジネスのサービス提供地域を登録する方法</a>（日文版說明頁）。</p>
+<p><b>一句話摘要：</b>日文版原本使用的「サービス提供地域型（SAB）」不是 Google 日本的正式用語。改為 Google 日文說明中心所使用的「非店舗型ビジネス」（需要時加上「ハイブリッド型ビジネス」）。中文版不變。</p>
+
+<p><b>舊說法（日文版原本的寫法）</b></p>
+<ul>
+<li>「サービス提供地域型（SAB）」：用來稱呼「不在營業地址接待客人、到客戶所在地提供服務」的事業。</li>
+<li>「サービスエリア型ビジネス」、「サービスエリア型」：同一概念的其他寫法。</li>
+<li>單獨的「SAB」：在日文句子中直接使用縮寫。</li>
+<li>「店舗（來店型）」、「実店舗型」：用來指一般的店舗型事業。</li>
+</ul>
+
+<p><b>現況（Google 日文說明中心的用語與定義）</b></p>
+<ul>
+<li><b>非店舗型ビジネス</b>：到客戶所在地提供服務或商品，不在營業地址接待客人的事業。例如清潔、水電等服務。這類事業可以建立一個涵蓋整個服務地區的檔案。</li>
+<li><b>ハイブリッド型ビジネス</b>：在營業地址接待客人，同時也提供外送或出張服務的事業。例如同時提供內用與外送的餐廳。</li>
+<li><b>服務地區（サービス提供地域）</b>：只有非店舗型與混合型事業可以設定。以市區町村指定，最多 20 個；不能只寫國家或都道府縣；全部範圍需在車程約 2 小時內。</li>
+<li>銷售年齡限制商品（酒類、大麻、武器等）的事業，必須以店舖形式營運，不能登記為非店舗型。</li>
+</ul>
+
+<p><b>處理方式（本次更正的內容）</b></p>
+<table>
+<thead><tr><th>舊用語（日文版）</th><th>新用語（日文版）</th><th>說明</th></tr></thead>
+<tbody>
+<tr><td>サービス提供地域型（SAB）</td><td>非店舗型ビジネス</td><td>到客戶所在地提供服務的事業</td></tr>
+<tr><td>サービスエリア型ビジネス／サービスエリア型</td><td>非店舗型ビジネス／非店舗型</td><td>同上</td></tr>
+<tr><td>SAB（單獨使用）</td><td>非店舗型ビジネス</td><td>在日文句子中不再使用縮寫</td></tr>
+<tr><td>店舗（來店型）／実店舗型</td><td>店舗型ビジネス／店舗型</td><td>一般的店舗型事業</td></tr>
+<tr><td>（無）</td><td>ハイブリッド型ビジネス（新增）</td><td>兼有店舗與出張或外送的事業</td></tr>
+</tbody>
+</table>
+<ul>
+<li><b>受影響的日文章節：</b>第 01、02、03、04、09、10、11、13、15、17、21 章，約 52 處。日文版術語表（_GLOSSARY）已同步更新。</li>
+<li><b>不變的內容：</b>服務地區的規定（約 2 小時、最多 20 個地區）、影片驗證與審查規則，本次都沒有改動，這些內容與 Google 說明頁一致。</li>
+<li><b>中文版：</b>繼續使用「SAB（服務區域商家）」，內容沒有改動。中文版的用語和說明不必與日文版相同。</li>
+</ul>
+
+<p class="src">依據：<a href="https://support.google.com/business/answer/9157481?hl=ja" target="_blank" rel="noopener">Google ビジネス プロフィール ヘルプ：非店舗型ビジネスとハイブリッド型ビジネスのサービス提供地域を登録する方法</a>（日文版說明頁，2026-10-18 查閱）。Google 可能會更新說明頁，若內容有變，請以當時的說明頁為準。</p>
 </article>
 
 </section>
@@ -4351,10 +4387,42 @@ html[data-lang="ja"] body{line-break:strict;overflow-wrap:anywhere}
 <article class="topic" id="ja-t-clarify-2026-10-18-sab-term" data-imp="4" data-conf="3" data-src="fix" data-added="2026-10-18" data-base="t-clarify-2026-10-18-sab-term">
 <h3>2026 年 10 月 18 日：「サービス提供地域型（SAB）」を「非店舗型ビジネス」に変更</h3>
 <div class="rate"><span><span class="lab">重要度</span><span class="stars s-imp" role="img" aria-label="重要度 5 つ星中 4">★★★★☆</span></span><span><span class="lab">間違えやすさ</span><span class="stars s-conf" role="img" aria-label="間違えやすさ 5 つ星中 3">★★★☆☆</span></span><span class="tag t-fix">訂正済み</span><span class="tag t-new">新着</span></div>
-<p><b>以前の記述：</b>日本語版では、サービス地域を訪問して提供する事業者を「サービス提供地域型（SAB）」「サービスエリア型ビジネス」「SAB」と表記していました。</p>
-<p><b>現在の状況：</b>Google ビジネス プロフィール ヘルプでは「非店舗型ビジネス」と「ハイブリッド型ビジネス」が使われています。「サービス提供地域型」と「SAB」は日本の正式な用語ではありません。</p>
-<p><b>対応内容：</b>日本語版の表記をすべて「非店舗型ビジネス」に統一し、用語集にも説明を加えました。中国語版は「SAB（服務區域商家）」のままで、内容は変更していません。</p>
-<p class="src">出典：<a href="https://support.google.com/business/answer/9157481?hl=ja" target="_blank" rel="noopener">Google ビジネス プロフィール ヘルプ：非店舗型ビジネスとハイブリッド型ビジネスのサービス提供地域を登録する方法</a>（日本語版ヘルプ）。</p>
+<p><b>要点：</b>以前の日本語版で使っていた「サービス提供地域型（SAB）」は、Google ビジネス プロフィールの日本語ヘルプで使われている用語ではありません。Google の日本語ヘルプに合わせて「非店舗型ビジネス」（必要に応じて「ハイブリッド型ビジネス」）に変更しました。中国語版は変更していません。</p>
+
+<p><b>以前の記述</b></p>
+<ul>
+<li>「サービス提供地域型（SAB）」：お客様のところに出向いてサービスを提供し、営業拠点の住所では接客しない事業を指していました。</li>
+<li>「サービスエリア型ビジネス」「サービスエリア型」：同じ意味で使っていました。</li>
+<li>「SAB」の単独表記：日本語の文の中で略語として使っていました。</li>
+<li>「店舗（来店型）」「実店舗型」：一般的な店舗型の事業を指していました。</li>
+</ul>
+
+<p><b>現在の状況（Google の日本語ヘルプの用語と定義）</b></p>
+<ul>
+<li><b>非店舗型ビジネス</b>：お客様のところに出向いてサービスや商品を提供し、営業拠点の住所では接客しない事業です。清掃や水道・電気工事などが例に挙げられています。サービス地域全体をひとつのプロフィールで登録できます。</li>
+<li><b>ハイブリッド型ビジネス</b>：営業拠点の住所でお客様に対応しながら、配達や出張サービスも行う事業です。店内飲食と配達の両方を行う飲食店などが例です。</li>
+<li><b>サービス提供地域</b>：非店舗型とハイブリッド型のみ設定できます。市区町村で指定し、最大 20 か所まで登録できます。国名や都道府県名だけでは登録できず、範囲は車でおおむね 2 時間以内に収める必要があります。</li>
+<li>年齢制限のある商品やサービス（酒類、大麻、武器など）を扱う事業は、店舗を持たない形態では運営できません。</li>
+</ul>
+
+<p><b>対応内容</b></p>
+<table>
+<thead><tr><th>以前の用語</th><th>現在の用語</th><th>補足</th></tr></thead>
+<tbody>
+<tr><td>サービス提供地域型（SAB）</td><td>非店舗型ビジネス</td><td>お客様のところに出向いて提供する事業</td></tr>
+<tr><td>サービスエリア型ビジネス／サービスエリア型</td><td>非店舗型ビジネス／非店舗型</td><td>同上</td></tr>
+<tr><td>SAB（単独）</td><td>非店舗型ビジネス</td><td>日本語の文では略語を使わない</td></tr>
+<tr><td>店舗（来店型）／実店舗型</td><td>店舗型ビジネス／店舗型</td><td>一般的な店舗型の事業</td></tr>
+<tr><td>（なし）</td><td>ハイブリッド型ビジネス（追加）</td><td>店舗と出張・配達の両方を行う事業</td></tr>
+</tbody>
+</table>
+<ul>
+<li><b>変更した章：</b>第 01、02、03、04、09、10、11、13、15、17、21 章の計約 52 か所。用語集（_GLOSSARY）も更新しました。</li>
+<li><b>変更していない内容：</b>サービス地域の規定（車で約 2 時間、最大 20 か所）、動画による確認の規定などは、Google の説明と一致しているため変更していません。</li>
+<li><b>中国語版：</b>「SAB（服務區域商家）」のまま変更していません。</li>
+</ul>
+
+<p class="src">出典：<a href="https://support.google.com/business/answer/9157481?hl=ja" target="_blank" rel="noopener">Google ビジネス プロフィール ヘルプ：非店舗型ビジネスとハイブリッド型ビジネスのサービス提供地域を登録する方法</a>（2026 年 10 月 18 日に確認）。ヘルプの内容は変更されることがあるため、最新の情報は上記のページでご確認ください。</p>
 </article>
 
 </section>
@@ -8373,8 +8441,8 @@ var KEY='gbpManualRead',root=document.documentElement;
 function load(k,d){try{var v=JSON.parse(localStorage.getItem(k));return v===null||v===undefined?d:v}catch(e){return d}}
 function save(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
 var D={
- zh:{doc:'zh-Hant',title:'Google 商家檔案（GBP）操作手冊','f-imp':'★ 重要 ≥4','f-conf':'★ 易錯 ≥4','f-official':'官方','f-expert':'專家經驗','f-unread':'只看未讀',clear:'清除篩選',menu:'☰ 目錄',theme:'◐ 深淺色',ph:'搜尋：停權、影片驗證、評論…',rd1:'✓ 已讀',rd0:'標記已讀',prog:function(n,m){return '已讀 '+n+' / '+m},cnt:function(v,n){return v+' / '+n+' 則'}},
- ja:{doc:'ja',title:'Google ビジネス プロフィール（GBP）運用マニュアル','f-imp':'★ 重要度 ≥4','f-conf':'★ 間違えやすさ ≥4','f-official':'公式','f-expert':'専門家の経験','f-unread':'未読のみ',clear:'絞り込み解除',menu:'☰ 目次',theme:'◐ 明暗切替',ph:'検索：停止、動画確認、クチコミ…',rd1:'✓ 既読',rd0:'既読にする',prog:function(n,m){return '既読 '+n+' / '+m},cnt:function(v,n){return v+' / '+n+' 件'}}
+ zh:{doc:'zh-Hant',smap:'網頁地圖',title:'Google 商家檔案（GBP）操作手冊','f-imp':'★ 重要 ≥4','f-conf':'★ 易錯 ≥4','f-official':'官方','f-expert':'專家經驗','f-unread':'只看未讀',clear:'清除篩選',menu:'☰ 目錄',theme:'◐ 深淺色',ph:'搜尋：停權、影片驗證、評論…',rd1:'✓ 已讀',rd0:'標記已讀',prog:function(n,m){return '已讀 '+n+' / '+m},cnt:function(v,n){return v+' / '+n+' 則'}},
+ ja:{doc:'ja',smap:'サイトマップ',title:'Google ビジネス プロフィール（GBP）運用マニュアル','f-imp':'★ 重要度 ≥4','f-conf':'★ 間違えやすさ ≥4','f-official':'公式','f-expert':'専門家の経験','f-unread':'未読のみ',clear:'絞り込み解除',menu:'☰ 目次',theme:'◐ 明暗切替',ph:'検索：停止、動画確認、クチコミ…',rd1:'✓ 既読',rd0:'既読にする',prog:function(n,m){return '既読 '+n+' / '+m},cnt:function(v,n){return v+' / '+n+' 件'}}
 };
 var saved=load('gbpManualLang',null);
 var lang=(saved==='ja'||saved==='zh')?saved:((navigator.language||'').slice(0,2)==='ja'?'ja':'zh');
