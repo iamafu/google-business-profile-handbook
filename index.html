@@ -200,6 +200,26 @@ html[data-lang="ja"] body{line-break:strict;overflow-wrap:anywhere}
 .topbar>span{flex:1}
 .tb-right{display:flex;gap:8px;align-items:center}
 .entry-box + .entry-box{margin-top:10px}
+/* ---------- floating search ---------- */
+.fab{position:fixed;right:16px;bottom:64px;z-index:6;width:42px;height:42px;border-radius:50%;border:1px solid var(--line2);background:var(--panel);color:var(--ink2);box-shadow:var(--shadow);cursor:pointer;display:flex;align-items:center;justify-content:center}
+.fab:hover{border-color:var(--blue);color:var(--blue-ink)}
+.fab svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round}
+.sbox{position:fixed;inset:0;z-index:30;background:rgba(18,22,28,.45);display:flex;align-items:flex-start;justify-content:center;padding:6vh 14px 14px}
+.sbox[hidden]{display:none}
+.spanel{width:min(680px,100%);max-height:88vh;background:var(--panel);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);display:flex;flex-direction:column;overflow:hidden}
+.srow{display:flex;gap:8px;align-items:center;padding:12px 12px 8px;border-bottom:1px solid var(--line)}
+#sq{flex:1;min-width:0;padding:10px 12px;border:1px solid var(--line2);border-radius:8px;background:var(--paper);color:var(--ink);font:inherit;font-size:15px}
+#sx{padding:8px 12px;border:1px solid var(--line2);background:transparent;color:var(--ink2);border-radius:8px;cursor:pointer;font:inherit}
+#scount{font:12px var(--mono);color:var(--ink3);padding:6px 14px 0}
+#sres{list-style:none;margin:0;padding:6px 8px 12px;overflow:auto;flex:1}
+#sres li{margin:2px 0}
+#sres a{display:block;padding:9px 10px;border-radius:8px;text-decoration:none;color:var(--ink)}
+#sres a:hover,#sres a:focus-visible{background:var(--blue-soft);outline:none}
+#sres .ch{font:11.5px var(--mono);color:var(--ink3);display:block}
+#sres .tt{font-weight:600;font-size:14.5px;display:block}
+#sres .sn{font-size:13px;color:var(--ink2);display:block;margin-top:2px}
+#sres mark{background:var(--amber-soft);color:inherit;border-radius:3px;padding:0 1px}
+.sempty{padding:20px 12px;color:var(--ink3);font-size:14px}
 </style>
 <div class="shell">
 <aside id="side" aria-label="手冊目錄">
@@ -8439,6 +8459,8 @@ document.querySelectorAll('.cmd-copy').forEach(function(b){
  });
 });
 </script>
+<button class="fab" id="fsearch" aria-label="搜尋全部主題" title="搜尋"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></button>
+<div class="sbox" id="sbox" hidden role="dialog" aria-modal="true" aria-label="搜尋"><div class="spanel"><div class="srow"><input id="sq" type="search" autocomplete="off" aria-label="搜尋"><button id="sx" type="button" aria-label="關閉">✕</button></div><div id="scount"></div><ul id="sres"></ul></div></div>
 <button id="top" aria-label="回到頂端">↑ 頂端</button>
 <script>
 (function(){
@@ -8489,6 +8511,38 @@ side.addEventListener('click',function(e){if(e.target.closest('a')&&matchMedia("
 if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&e.target.dataset.l===lang){var d=$('nav details[data-ch="'+e.target.id+'"]');if(d&&!isFiltering()){$$('nav details',d.parentNode).forEach(function(x){if(x!==d)x.open=false});d.open=true}}})},{rootMargin:'-10% 0px -80% 0px'});allChapters.forEach(function(c){io.observe(c)})}
 /* checklist（兩種語言共用同一組 data-k，進度會同步） */
 var ck=load('gbpManualChecks',{});$$('.checklist input[data-k]').forEach(function(i){i.checked=!!ck[i.dataset.k];i.addEventListener('change',function(){ck[i.dataset.k]=i.checked;save('gbpManualChecks',ck);$$('.checklist input[data-k="'+i.dataset.k+'"]').forEach(function(o){o.checked=i.checked})})});
+/* floating search: 搜尋全部主題（標題與內文），不受側欄篩選影響 */
+var fsBtn=$('#fsearch'),sbox=$('#sbox'),sq=$('#sq'),sres=$('#sres'),scount=$('#scount');
+function esc2(t){return t.replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function renderS(){
+  var q=sq.value.trim().toLowerCase();
+  if(!q){sres.innerHTML='';scount.textContent='';return;}
+  var hits=[];
+  topics().forEach(function(t){
+    var txt=t.textContent.replace(/\s+/g,' '),low=txt.toLowerCase(),i=low.indexOf(q);
+    if(i<0)return;
+    var h3=t.querySelector('h3'),title=h3?h3.textContent.trim():t.id;
+    var ch=t.closest('.chapter'),chName=ch?(ch.querySelector('h2')||{}).textContent||'':'';
+    var a=Math.max(0,i-30),snip=(a>0?'…':'')+txt.slice(a,a+110)+(a+110<txt.length?'…':'');
+    hits.push({id:t.id,title:title,chName:chName,snip:snip,q:q,inTitle:title.toLowerCase().indexOf(q)>=0});
+  });
+  hits.sort(function(x,y){return (y.inTitle?1:0)-(x.inTitle?1:0)});
+  var shown=hits.slice(0,80);
+  scount.textContent=hits.length?(lang==='ja'?hits.length+' 件':hits.length+' 筆'):'';
+  sres.innerHTML=shown.length?shown.map(function(h){
+    var re=new RegExp(h.q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'gi');
+    var mk=function(s){return esc2(s).replace(re,function(m){return '<mark>'+m+'</mark>'})};
+    return '<li><a href="#'+h.id+'"><span class="ch">'+esc2(h.chName)+'</span><span class="tt">'+mk(h.title)+'</span><span class="sn">'+mk(h.snip)+'</span></a></li>';
+  }).join(''):'<li class="sempty">'+(lang==='ja'?'該当するトピックがありません':'沒有符合的主題')+'</li>';
+}
+function openS(){sq.placeholder=lang==='ja'?'すべてのトピックを検索（見出しと本文）':'搜尋全部主題（標題與內文）';sbox.hidden=false;sq.focus();renderS();}
+function closeS(){sbox.hidden=true;}
+fsBtn.addEventListener('click',openS);
+$('#sx').addEventListener('click',closeS);
+sbox.addEventListener('click',function(e){if(e.target===sbox)closeS();});
+sq.addEventListener('input',renderS);
+sres.addEventListener('click',function(e){var a=e.target.closest('a');if(!a)return;closeS();var t=document.getElementById(a.getAttribute('href').slice(1));if(t){setTimeout(function(){t.scrollIntoView({behavior:'smooth',block:'start'})},30);}});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!sbox.hidden)closeS();if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();openS();}});
 /* top */
 var tp=$('#top');addEventListener('scroll',function(){tp.classList.toggle('on',scrollY>900)},{passive:true});tp.addEventListener('click',function(){scrollTo({top:0})});
 setLang(lang,false);
