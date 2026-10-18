@@ -194,6 +194,10 @@ html[data-lang="ja"] body{line-break:strict;overflow-wrap:anywhere}
 .smap-btn{display:inline-flex;align-items:center;gap:7px;font:13px var(--sans);padding:6px 12px;border:1px solid var(--blue);background:var(--blue);color:#fff;border-radius:6px;text-decoration:none;font-weight:600}
 .smap-btn svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
 .smap-btn:hover{filter:brightness(1.08)}
+/* ---------- topbar grouping & entry spacing ---------- */
+.topbar>span{flex:1}
+.tb-right{display:flex;gap:8px;align-items:center}
+.entry-box + .entry-box{margin-top:10px}
 </style>
 <div class="shell">
 <aside id="side" aria-label="手冊目錄">
@@ -321,7 +325,7 @@ html[data-lang="ja"] body{line-break:strict;overflow-wrap:anywhere}
  <div class="cmd-box"><div class="cmd-label">更新指令（新對話直接貼上）／ 更新コマンド（新しいチャットに貼り付け）</div><div class="cmd-row"><code class="cmd-text">依 UPDATE.md 更新 Google 商家檔案操作手冊</code><button type="button" class="cmd-copy" data-cmd="依 UPDATE.md 更新 Google 商家檔案操作手冊">複製指令 ／ コピー</button></div></div>
 <div class="upd-top" data-l="zh">最後更新：<b>2026-10-18</b> ・ 下次更新：<b>2026-11-01</b>（每月 1 日與 15 日）・ 統計快照：<b>2026-10-07</b></div>
 <div class="upd-top" data-l="ja">最終更新：<b>2026-10-18</b> ・ 次回更新：<b>2026-11-01</b>（毎月 1 日・15 日）・ 統計スナップショット：<b>2026-10-07</b></div>
-<div class="topbar"><button id="menu" aria-controls="side" aria-expanded="false" data-t="menu">☰ 目錄</button><span></span><div class="lang" role="group" aria-label="言語 / 語言"><button type="button" data-setlang="zh" aria-pressed="true">中文</button><button type="button" data-setlang="ja" aria-pressed="false">日本語</button></div><a class="smap-btn" href="sitemap.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2zM9 4v14M15 6v14"/></svg><span data-t="smap">網頁地圖</span></a><button id="theme" aria-label="theme" data-t="theme">◐ 深淺色</button></div>
+<div class="topbar"><button id="menu" aria-controls="side" aria-expanded="false" data-t="menu">☰ 目錄</button><span></span><div class="lang" role="group" aria-label="言語 / 語言"><button type="button" data-setlang="zh" aria-pressed="true">中文</button><button type="button" data-setlang="ja" aria-pressed="false">日本語</button></div><div class="tb-right"><a class="smap-btn" href="sitemap.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2zM9 4v14M15 6v14"/></svg><span data-t="smap">網頁地圖</span></a><button id="theme" aria-label="theme" data-t="theme">◐ 深淺色</button></div></div>
  <div class="hero" data-l="zh">
   <div class="kick">Google Business Profile ・ Community Field Manual</div>
   <h1>Google 商家檔案（GBP）操作手冊</h1>
