@@ -49,6 +49,10 @@ html[data-lang="zh"] .lang-block[data-lang="ja"],html[data-lang="ja"] .lang-bloc
 .tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin:18px 0 8px}
 .tile{display:flex;flex-direction:column;align-items:flex-start;gap:4px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 12px 10px;text-decoration:none;color:var(--ink);box-shadow:var(--shadow);transition:transform .15s,border-color .15s}
 .tile:hover{transform:translateY(-2px);border-color:var(--blue)}
+:root[data-theme="dark"]{--bg:#12161C;--panel:#1A2028;--ink:#E8E6E1;--ink2:#B3BAC3;--ink3:#8691A0;--line:rgba(232,230,225,.14);--blue:#8DAEFF;--blue-ink:#B6CBFF;--blue-soft:rgba(141,174,255,.12)}
+:root[data-theme="light"]{--bg:#F6F5F1;--panel:#FFFFFF;--ink:#1B2129;--ink2:#46505C;--ink3:#76808B;--line:rgba(27,33,41,.14);--blue:#2457C5;--blue-ink:#1A429C;--blue-soft:rgba(36,87,197,.09)}
+.th{font:13px system-ui,sans-serif;padding:6px 12px;border:1px solid var(--line);background:var(--panel);color:var(--ink2);border-radius:8px;cursor:pointer}
+.th:hover{border-color:var(--blue)}
 .tile svg{width:26px;height:26px;stroke:var(--blue);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;background:var(--blue-soft);border-radius:8px;padding:5px;box-sizing:content-box}
 .tile .tn{font-weight:600;font-size:14.5px;line-height:1.35}
 .tile small{color:var(--ink3);font-size:12px}
@@ -74,6 +78,7 @@ details.sm-ch a:hover{color:var(--blue-ink);border-bottom-color:var(--blue)}
 <header class="top"><div class="wrap"><div class="row">
 <h1><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2zM9 4v14M15 6v14"/></svg><span data-sl="zh">網頁地圖</span><span data-sl="ja">サイトマップ</span></h1>
 <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><a class="back" href="index.html"><span data-sl="zh">← 回到手冊</span><span data-sl="ja">← マニュアルに戻る</span></a>
+<button type="button" class="th" id="sm-theme" aria-label="切換深淺色 / 明暗切替"><span data-sl="zh">◐ 深淺色</span><span data-sl="ja">◐ 明暗切替</span></button>
 <div class="langsw"><button type="button" data-lang="zh" aria-pressed="true">中文</button><button type="button" data-lang="ja" aria-pressed="false">日本語</button></div></div>
 </div></div></header>
 <main class="wrap">
@@ -90,6 +95,11 @@ details.sm-ch a:hover{color:var(--blue-ink);border-bottom-color:var(--blue)}
  document.querySelectorAll('[data-act]').forEach(function(b){b.addEventListener('click',function(){var block=b.closest('.lang-block');openIn(block,b.getAttribute('data-act')==='open');});});
  function fromHash(){var h=location.hash.slice(1);var m=h.match(/^(zh|ja)-gd+$/);if(m){setLang(m[1]);var sec=document.getElementById(h);if(sec){openIn(sec,true);sec.scrollIntoView({behavior:'smooth',block:'start'});}}}
  window.addEventListener('hashchange',fromHash);
+ var KEY='gbpManualTheme';
+ try{var saved=localStorage.getItem(KEY);if(saved==='dark'||saved==='light')root.setAttribute('data-theme',saved);}catch(e){}
+ var tb=document.getElementById('sm-theme');
+ function isDark(){var t=root.getAttribute('data-theme');return t==='dark'||(!t&&matchMedia('(prefers-color-scheme: dark)').matches);}
+ tb.addEventListener('click',function(){var n=isDark()?'light':'dark';root.setAttribute('data-theme',n);try{localStorage.setItem(KEY,n)}catch(e){}});
  setLang((navigator.language||'').slice(0,2)==='ja'?'ja':'zh');
  fromHash();
 })();
